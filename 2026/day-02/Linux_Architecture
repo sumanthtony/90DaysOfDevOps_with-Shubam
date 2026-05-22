@@ -1,1 +1,132 @@
+1. Core Components of Linux
+
+Kernel
+
+The kernel is the heart of Linux.
+It directly talks to the hardware (CPU, memory, disk, network).
+
+Main jobs:
+Manage memory
+Manage CPU usage
+Handle devices
+Create and manage processes
+Provide security
+
+Example:
+When you open Chrome or run a command, the kernel allocates CPU and memory for it.
+
+2.User Space
+
+User space is where normal applications run.
+
+Examples:
+
+Chrome
+VS Code
+Bash shell
+Docker
+Python programs
+
+Applications cannot directly access hardware.
+They request the kernel using system calls.
+
+3. Init / systemd
+
+When Linux boots, the kernel starts the first process called init.
+
+Modern Linux uses systemd as the init system.
+
+systemd:
+
+Starts services during boot
+Restarts failed services
+Manages logs and background processes
+
+Example services:
+SSH
+Docker
+Nginx
+
+4. How Processes Are Created and Managed
+
+A process is simply a running program.
+
+Example:
+Running nginx, python, or chrome creates processes.
+
+Process Creation Flow
+User runs a command
+Shell requests kernel
+Kernel creates a new process
+Process gets:
+PID (Process ID)
+Memory
+CPU time
+Process Management
+
+Linux manages:
+
+CPU scheduling
+Memory allocation
+Process priority
+Background/foreground jobs
+
+Useful commands:
+
+ps → show processes
+top → live process monitoring
+kill → stop a process
+
+What systemd Does and Why It Matters ?
+
+systemd is the service manager in Linux.
+
+It is important because it:
+
+Starts services automatically at boot
+Keeps services running
+Manages logs
+Handles dependencies between services
+
+Example:
+If Docker crashes, systemd can restart it automatically.
+
+Useful commands:
+
+systemctl status nginx
+systemctl start nginx
+systemctl stop nginx
+systemctl restart nginx
+
+
+Process States in Linux
+
+
+| State    | Meaning                                      |
+| -------- | -------------------------------------------- |
+| Running  | Process is using CPU                         |
+| Sleeping | Waiting for something (disk, input, network) |
+| Stopped  | Process paused manually                      |
+| Zombie   | Process finished but parent did not clean it |
+| Dead     | Process completely removed                   |
+
+
+
+Zombie Process: A zombie process is already completed but still shows in process table because the parent process has not collected its exit status.
+
+Linux Commands Used Daily
+
+| Command                      | Purpose                      |
+| ---------------------------- | ---------------------------- |
+| `ls`                         | List files and folders       |
+| `cd`                         | Change directory             |
+| `ps -ef`                     | View running processes       |
+| `top`                        | Monitor CPU and memory usage |
+| `systemctl status <service>` | Check service status         |
+
+
+top
+ps -ef
+systemctl status docker
+
 
